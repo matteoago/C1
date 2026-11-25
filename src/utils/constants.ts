@@ -52,8 +52,8 @@ export const PAGINATION_CONFIG = {
    * Minimum delay floor in ms. Two pressures set this:
    *  - It must clear C1's immediate partial-render flicker (~250ms); robustness
    *    against the variable render/button-detach gap comes from STABILIZE_POLLS.
-   *  - It paces "View More" clicks so we don't trip C1's API rate limit (HTTP
-   *    429). A 250ms floor proved too aggressive and drew constant 429s, so the
+   *  - It paces "View More" clicks so we don't trip API rate limits (HTTP
+   *    429/403). A 250ms floor proved too aggressive and drew constant 429s, so the
    *    floor is raised to keep a sustainable request cadence. Bursts that still
    *    hit a 429 are handled by the rate-limit backoff in pagination.ts.
    */

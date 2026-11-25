@@ -1,178 +1,89 @@
 # C1 Offers Sorter
 
-> Enhance your Capital One rewards experience with intelligent sorting, powerful search, and favorites management
-
-## Features
-
-**Instant Search**
-
-- Search across all loaded offers by merchant name
-- Fuzzy matching finds offers even with typos
-- Click any result to instantly scroll to that offer on the page
-- Works seamlessly with thousands of offers
-
-**Smart Sorting**
-
-- Sort offers by highest or lowest mileage rewards
-- Sort alphabetically by merchant name (A-Z or Z-A)
-- Automatically loads all available offers before sorting
-
-**Offer Type Filter**
-
-- Filter by All, Multipliers (5X, 10X), or Static (500 miles) offers
-- Quickly find high-multiplier deals or fixed-value offers
-- Works with sorting and favorites filtering
-
-**Favorites Management**
-
-- Mark your favorite offers with star buttons
-- View all favorites in an expandable list
-- Filter to show only favorited offers on the page
-- Favorites persist across browsing sessions
-
-**Security & Privacy**
-
-- All data stored locally—nothing sent to external servers
-- Open source and transparent
-- Minimal permissions required
-
-## Quick Start
-
-1. **Install the Extension**
-
-   - Install from the [Chrome Web Store](https://chrome.google.com/webstore) (coming soon)
-   - Or build from source (see Development section below)
-
-2. **Navigate to Capital One Offers**
-
-   - Visit [capitaloneoffers.com/feed](https://capitaloneoffers.com/feed) or [capitaloneoffers.com/c1-offers](https://capitaloneoffers.com/c1-offers)
-   - Click the extension icon in your Chrome toolbar
-
-3. **Search for Offers**
-
-   - Use the search box to find specific merchants
-   - Click any search result to jump to that offer on the page
-   - Search works after all offers are loaded
-
-4. **Sort Your Offers**
-
-   - Choose your sorting preference (mileage or alphabetical)
-   - Select order (highest/lowest or A-Z/Z-A)
-   - Click "Load & Sort Offers"
-
-5. **Manage Favorites**
-   - Toggle "Favorites" switch to enable star buttons
-   - Click stars on offers to mark as favorites
-   - Use "Show Favorites Only" to filter the page
-
-## Usage
-
-### Searching Offers
-
-1. Navigate to [capitaloneoffers.com/feed](https://capitaloneoffers.com/feed) or [capitaloneoffers.com/c1-offers](https://capitaloneoffers.com/c1-offers)
-2. Click the extension icon
-3. Click "Load & Sort Offers" to load all available offers (required for search)
-4. Type in the search box to find specific merchants
-5. Click any search result to instantly jump to that offer on the page
-
-**Tips:**
-
-- Search uses fuzzy matching—it works even if you misspell the merchant name
-- Search becomes available after pagination completes (all offers loaded)
-- Results show merchant name and mileage value
-
-### Sorting Offers
-
-1. Navigate to [capitaloneoffers.com/feed](https://capitaloneoffers.com/feed) or [capitaloneoffers.com/c1-offers](https://capitaloneoffers.com/c1-offers)
-2. Click the extension icon
-3. Select sort criteria (Mileage or Alphabetical)
-4. Choose order (Highest/Lowest or A-Z/Z-A)
-5. Click "Load & Sort Offers"
-
-### Managing Favorites
-
-1. Toggle the favorites switch in the popup
-2. Click star buttons on any offer
-3. Click "Show Favorites Only" to filter the page
-4. View your favorites list by clicking "Your Favorites"
-
-## Privacy & Security
-
-Your privacy matters. This extension:
-
-- ✅ Stores all data **locally** in your browser only
-- ✅ **Never transmits** data to external servers
-- ✅ Only activates on Capital One domains
-- ✅ Uses minimal permissions (activeTab, scripting, storage)
-- ✅ Open source—review the code anytime
-
-### Required Permissions
-
-| Permission  | Why We Need It                                           |
-| ----------- | -------------------------------------------------------- |
-| `activeTab` | Access Capital One offers page when you click extension  |
-| `scripting` | Inject sorting and favorites functionality into the page |
-| `storage`   | Save your favorite offers locally in your browser        |
-
-Read the full [Privacy Policy](docs/PRIVACY.md).
-
-## Browser Compatibility
-
-- **Chrome**: Version 109 or later
-- **Firefox**: Version 109 or later _(New in v2.3)_
-- **Edge**: Chromium-based versions supported
-
-## Development
-
-Want to contribute or build from source?
-
-### Setup
-
-```bash
-# Clone and install
-git clone https://github.com/noritheshibadev/c1offersort.git
-cd c1offersort
-yarn install
-
-# Build the extension
-yarn build
-```
-
-### Load in Chrome
-
-1. Navigate to `chrome://extensions`
-2. Enable "Developer mode" (top right toggle)
-3. Click "Load unpacked"
-4. Select the `dist/chrome-mv3` folder from the project
-
-### Load in Firefox
-
-1. Navigate to `about:debugging#/runtime/this-firefox`
-2. Click "Load Temporary Add-on"
-3. Select `dist/firefox-mv3/manifest.json`
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes and test locally
-4. Submit a Pull Request
-
-For bug reports or feature requests, please [open an issue](https://github.com/noritheshibadev/c1offersort/issues).
-
-## Support
-
-- **Bug Reports**: [Open an issue](https://github.com/noritheshibadev/c1offersort/issues)
-- **Questions**: [GitHub Discussions](https://github.com/noritheshibadev/c1offersort/discussions)
-
-If you find this extension helpful, consider [buying Nori a treat](https://buymeacoffee.com/shibadev)!
-
-## License
-
-This project is open source and available under the MIT License.
+> Search, sort, and organize Capital One Shopping offers by mileage value with natural, human-like pacing for reliable loading.
 
 ---
 
-**Note**: This extension is not affiliated with or endorsed by Capital One. It's an independent tool created to enhance the user experience of Capital One rewards offers.
+## ⚡ What's New in this Version
+
+- **Human-Like Pacing**: Includes randomized pauses (1 to 5 seconds) between "View More Offers" clicks, simulating natural human browsing behavior and preventing request throttling so all offers load smoothly.
+- **Enhanced Reliability**: Automatically monitors response statuses and backs off gracefully if rate limits are reached.
+
+---
+
+## 🚀 How to Install in Google Chrome
+
+Choose either **Method 1 (Easiest - No Node.js required)** or **Method 2 (Build from Source)**.
+
+### Method 1: Using Pre-built Zip (Recommended & Quickest)
+
+1. **Download the Extension:**
+   - Go to the [Releases](https://github.com/matteoago/C1/releases) page.
+   - Download the latest `c1-offers-sorter-chrome.zip`.
+2. **Unzip the File:**
+   - Extract `c1-offers-sorter-chrome.zip` to a folder on your computer (e.g. into your `Downloads` or `Documents` folder).
+3. **Load in Chrome:**
+   - Open Google Chrome and type `chrome://extensions` in the address bar (or go to `Menu (⋮)` > `Extensions` > `Manage Extensions`).
+   - Turn **ON** the **Developer mode** toggle in the top-right corner.
+   - Click the **Load unpacked** button in the top-left corner.
+   - Select the unzipped folder (the folder containing `manifest.json`).
+4. **Done!** The extension icon will now appear in your Chrome toolbar.
+
+---
+
+### Method 2: Build from Source
+
+If you have Node.js installed and want to build the extension yourself:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/matteoago/C1.git
+cd C1
+
+# 2. Install dependencies
+npm install
+
+# 3. Build the extension for Chrome
+npm run build
+```
+
+Then load it into Chrome:
+1. Open Chrome and navigate to `chrome://extensions`.
+2. Toggle on **Developer mode** (top right).
+3. Click **Load unpacked** (top left).
+4. Select the `dist/chrome-mv3` folder inside the `C1` directory.
+
+---
+
+## 📖 How to Use
+
+1. **Navigate to Capital One Offers:**
+   - Visit [capitaloneoffers.com/feed](https://capitaloneoffers.com/feed) or [capitaloneoffers.com/c1-offers](https://capitaloneoffers.com/c1-offers) and log in.
+2. **Open the Extension:**
+   - Click the **C1 Offers Sorter** icon in your Chrome toolbar. (Tip: Click the puzzle piece icon to pin it to your toolbar).
+3. **Sort Your Offers:**
+   - Choose your sort criteria (**Mileage** or **Alphabetical**).
+   - Select the order (**Highest to Lowest** or **Lowest to Highest**).
+   - Click **"Load & Sort Offers"**.
+   - The extension will automatically paginate through the offers with random 1–5 second pauses to ensure steady, uninterrupted loading.
+4. **Search Across All Offers:**
+   - Use the built-in instant search box to quickly filter by merchant name (supports fuzzy matching for typos).
+5. **Manage Favorites:**
+   - Enable the Favorites toggle to star deals you want to save for later.
+   - Click "Show Favorites Only" to view just your saved offers.
+
+---
+
+## 🔒 Security & Privacy
+
+- **100% Local**: All sorting, searching, and favorites are handled strictly inside your browser. No data, credentials, or cookies are ever transmitted to any third-party server.
+- **Minimal Permissions**: Uses only `activeTab`, `scripting`, and `storage` (to save your favorite stars locally).
+- **Open Source**: The code is completely open and inspectable.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+*Disclaimer: This extension is an independent tool and is not affiliated with, sponsored by, or endorsed by Capital One.*

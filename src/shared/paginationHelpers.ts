@@ -273,9 +273,9 @@ export function startRateLimitMonitor(): void {
   if (originalFetch) return; // already monitoring
 
   const markIf429 = (status: number) => {
-    if (status === 429) {
+    if (status === 429 || status === 403) {
       lastRateLimitTime = Date.now();
-      console.warn('[Pagination] Detected HTTP 429 (rate limited)');
+      console.warn('[Pagination] Detected HTTP 429/403 (rate limited)');
     }
   };
 

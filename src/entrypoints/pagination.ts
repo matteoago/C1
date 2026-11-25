@@ -260,6 +260,11 @@ export default defineUnlistedScript(() => {
         } else {
           console.log('[Pagination] Slow avg - keeping delay at', Math.round(currentDelay), 'ms');
         }
+        
+        // Simulating human behavior before loading next page
+        const humanDelay = 1000 + Math.floor(Math.random() * 4001);
+        console.log(`[Pagination] Simulating human delay: ${humanDelay}ms`);
+        await sleep(humanDelay);
       } else if (wasRecentlyRateLimited(PAGINATION_CONFIG.RATE_LIMIT_WINDOW)) {
         // No new tiles because we were just rate-limited - NOT end-of-data.
         // Don't count this as a failure; the backoff gate at the top of the next
